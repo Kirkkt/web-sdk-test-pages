@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="http://localhost:8000/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"init data addListener removeListener setIdentity logout track link sendSMS referrals credits creditHistory applyCode validateCode getCode redeem banner closeBanner".split(" "), 0);
+        </script>
+		<script src="http://localhost:8000/github/web-sdk-test-pages/predefs.js"></script>
+        <script type="text/javascript">
+          branch.init("key_live_jklTmfRIxLefYP3EY1yTudmaCsdnqsAI", function(err, data) {
+                if(err){console.log('INIT 1 > ERR');console.log(err);}
+                else{console.log('INIT 1 > DATA');console.log(data);}
+                console.log('===================================');
+            });
+            branch.setIdentity("rubin", function(err, data){
+                if(err){console.log('SETIDENTITY > Rubin > ERR');console.log(err);}
+                else{console.log('SETIDENTITY > Rubin > DATA');console.log(data);}
+                console.log('===================================');
+            });
+            branch.logout(
+                function(err){
+                    if(err){console.log('LOGOUT > ERR');console.log(err);
+                         console.log('===================================');
+                    }
+                }
+            );
+            branch.setIdentity("kirk", function(err, data){
+                if(err){console.log('SETIDENTITY > Kirk > ERR2');console.log(err);}
+                else{console.log('SETIDENTITY > Kirk > DATA');console.log(data);}
+                console.log('===================================');
+            });
+        </script>
+    </head>
+    <body>
+    	Send SMS
+        <form onsubmit="sendSMS(this); return false;">
+        	<input id="phone" name="phone" type="tel" placeholder="(650) 123-4567" />
+        	<br/>
+        	<input type="submit"/>
+        </form>
+    </body>
+</html>

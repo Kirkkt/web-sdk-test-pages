@@ -20,14 +20,18 @@
 						script.type = 'text/javascript';
 						script.async = true;
 						script.src = src;
-			console.log('src', src);
-			console.log('script', script);
+console.log('src', src);
+console.log('script', script);
 
 						document.getElementsByTagName('head')[0].appendChild(script);
 					},
 					sendToStore: function() {
 						if (typeof window.__branchRedirectToStore == 'function') { window.__branchRedirectToStore(); }
-						else if (branch._base_url) { window.location = branch._base_url; }
+						else if (branch._base_url) {
+							window.location = branch._base_url;
+						} else {
+console.log('branch', branch);
+						}
 					}
 				};
 
@@ -37,10 +41,10 @@
 				}
 
 				// open app if installed
-				branch.sendToApp("https://bnc.lt/a/key_live_eifqPbvhIRnKEb1T0MSFpipgsCenSDRu", {
-					"$deeplink_path": "explore/travel",
-					"params": "1234"
-				});
+				// branch.sendToApp("https://bnc.lt/a/key_live_eifqPbvhIRnKEb1T0MSFpipgsCenSDRu", {
+				// 	"$deeplink_path": "explore/travel",
+				// 	"params": "1234"
+				// });
 			};
 		</script>
 	</head>

@@ -38,32 +38,25 @@
 			};
 			// branch.init('key_live_aaoJQgyZwx7uHRQ2bXCKKjlilkhbF5tT', null, function(err, data) { console.log('after init:', err, data); });
 			branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', null, function(err, data) { console.log('after init:', err, data); });
-			branch.deepview(
-				{
-					channel: 'facebook',
-					data: {
-						mydata: 'something',
-						foo: 'bar',
-						'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$android_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$deepview_path': 'item_id=12345',
-						'$og_app_id': '12345',
-						'$og_title': 'My App',
-						'$og_description': 'My app\'s description.'
-					},
-					feature: 'dashboard',
-					stage: 'new user',
-					tags: [ 'tag1', 'tag2' ],
-				},
-				{
-					make_new_link: true,
-					open_app: true
-				},
-				callback
-			);
-
+			branch.link({
+				tags: [ 'tag1', 'tag2' ],
+				channel: 'facebook',
+				feature: 'dashboard',
+				stage: 'new user',
+				data: {
+					mydata: 'something',
+					foo: 'bar',
+					'$desktop_url': 'https://dl.dropboxusercontent.com/s/698r0z0j78rtr77/smile.txt?dl=0',
+					'$ios_url': 'https://dl.dropboxusercontent.com/s/698r0z0j78rtr77/smile.txt?dl=0',
+					'$ipad_url': 'https://dl.dropboxusercontent.com/s/698r0z0j78rtr77/smile.txt?dl=0',
+					'$android_url': 'https://dl.dropboxusercontent.com/s/698r0z0j78rtr77/smile.txt?dl=0',
+					'$og_app_id': '12345',
+					'$og_title': 'My App',
+					'$og_description': 'My app\'s description.',
+					'$og_image_url': 'http://myappwebsite.com/image.png'
+				}
+			}
+			, function(err, link) { console.log(err, link); });
 		</script>
 	</head>
 	<body>

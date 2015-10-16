@@ -36,10 +36,15 @@
 					}
 				);
 			};
-			// branch.init('key_live_aaoJQgyZwx7uHRQ2bXCKKjlilkhbF5tT', null, function(err, data) { console.log('after init:', err, data); });
-			branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', null, function(err, data) { console.log('after init:', err, data); });
+			branch.init(
+				'key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa',
+				null,
+				function(err, data) {
+					console.log('0 init callback: ', err, data);
+				}
+			);
 
-			branch.link({}, function(err, link) { console.log(err, link); });
+			branch.link({}, function(err, link) { console.log('1 link callback: ', err, link); });
 
 		</script>
 	</head>

@@ -8,7 +8,9 @@
 			var initCallback = function(err, data) {
 				console.log('kirk init callback:', err, data);
 			};
-            branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', initCallback);
+            // branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', initCallback);
+            branch.init('key_live_aaoJQgyZwx7uHRQ2bXCKKjlilkhbF5tT', initCallback);
+
             function sendSMS(form) {
                 var phone = form.phone.value;
                 var linkData = {
@@ -37,7 +39,6 @@
                     }
                 };
                 branch.sendSMS(phone, linkData, options, callback);
-                branch.sendSMS(phone, linkData2, options, callback);
                 form.phone.value = "";
             }
         </script>

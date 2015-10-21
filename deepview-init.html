@@ -28,7 +28,7 @@
 							'$android_url': 'https://en.wikipedia.org/wiki/Internet',
 							'$og_app_id': '12345',
 							'$og_title': 'My App',
-							'$og_description': 'My app\'s description.',
+							'$og_description': 'My app\'s description.'
 						}
 					}, function(err, link) {
 						console.log(err, link);
@@ -36,8 +36,9 @@
 					}
 				);
 			};
-			// branch.init('key_live_aaoJQgyZwx7uHRQ2bXCKKjlilkhbF5tT', null, function(err, data) { console.log('after init:', err, data); });
-			branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', null, function(err, data) { console.log('after init:', err, data); });
+
+			branch.init('key_live_aaoJQgyZwx7uHRQ2bXCKKjlilkhbF5tT', null, function(err, data) { console.log('after init:', err, data); });
+			// branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', null, function(err, data) { console.log('after init:', err, data); });
 			branch.deepview(
 				{
 					channel: 'facebook',

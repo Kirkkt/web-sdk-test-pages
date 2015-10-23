@@ -3,30 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <script type="text/javascript">
-            (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="http://localhost:8000/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"init data addListener removeListener setIdentity logout track link sendSMS referrals credits creditHistory applyCode validateCode getCode redeem banner closeBanner".split(" "), 0);
+            (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-v1.7.0.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"init data addListener removeListener setIdentity logout track link sendSMS referrals credits creditHistory applyCode validateCode getCode redeem banner closeBanner".split(" "), 0);
 
 			// this works with "Kirk's branchester" testing app on <http://dashboard.branch.io>
 			var initCallback = function(err, data) {
 				console.log('kirkdebug init callback:', err, data);
 			};
-			branch.init('key_live_ggkIIzvaEwblwYQp7ATCMomepdfePSjU', null, function(err, data) { console.log('after init:', err, data); });
-            // branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', initCallback);
+            branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', initCallback);
             function sendSMS(form) {
-
-				var data = {
-					data : {
-						mydata: 'something',
-						foo: 'bar',
-						'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$android_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$og_app_id': '12345',
-						'$og_title': 'My App',
-						'$og_description': 'My app\'s description.'
-					},
-					tags: ['foo1', 'foo2']
-				};
 				var options = {
 					icon: 'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png',
 					title: 'Branch Demo App',
@@ -46,8 +30,10 @@
 					mobileSticky: false,                    // Determines whether the mobile banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to false *this property only applies when the banner position is 'top'
 					desktopSticky: true,                    // Determines whether the desktop banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to true *this property only applies when the banner position is 'top'
 					customCSS: '.title { color: #F00; }',   // Add your own custom styles to the banner that load last, and are gauranteed to take precedence, even if you leave the banner in an iframe
-					make_new_link: true,                    // Should the banner create a new link, even if a link already exists?
-					open_app: true
+					make_new_link: false                    // Should the banner create a new link, even if a link already exists?
+				};
+				var data = {
+					tags: ['foo1', 'foo2']
 				};
 				branch.banner(options, data);
                 form.phone.value = "";

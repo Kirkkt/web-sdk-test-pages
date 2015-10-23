@@ -1,65 +1,18 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <script type="text/javascript">
-            (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="http://localhost:8000/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"init data addListener removeListener setIdentity logout track link sendSMS referrals credits creditHistory applyCode validateCode getCode redeem banner closeBanner".split(" "), 0);
-
-			// this works with "Kirk's branchester" testing app on <http://dashboard.branch.io>
-			var initCallback = function(err, data) {
-				console.log('kirkdebug init callback:', err, data);
-			};
-			// branch.init('key_live_ggkIIzvaEwblwYQp7ATCMomepdfePSjU', null, function(err, data) { console.log('after init:', err, data); });
-            branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', initCallback);
-            function sendSMS(form) {
-
-				var data = {
-					data : {
-						mydata: 'something',
-						foo: 'bar',
-						'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$android_url': 'https://en.wikipedia.org/wiki/Internet',
-						'$og_app_id': '12345',
-						'$og_title': 'My App',
-						'$og_description': 'My app\'s description.'
-					},
-					tags: ['foo1', 'foo2']
-				};
-				var options = {
-					icon: 'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png',
-					title: 'Branch Demo App',
-					description: 'The Branch demo app!',
-					openAppButtonText: 'Open',              // Text to show on button if the user has the app installed
-					downloadAppButtonText: 'Download',      // Text to show on button if the user does not have the app installed
-					sendLinkText: 'Send Link',              // Text to show on desktop button to allow users to text themselves the app
-					phonePreviewText: '+44 9999-9999',      // The default phone placeholder is a US format number, localize the placeholder number with a custom placeholder with this option
-					showiOS: true,                          // Should the banner be shown on iOS devices (both iPhones and iPads)?
-					showiPad: true,                         // Should the banner be shown on iPads (this overrides showiOS)?
-					showAndroid: true,                      // Should the banner be shown on Android devices?
-					showDesktop: true,                      // Should the banner be shown on desktop devices?
-					iframe: true,                           // Show banner in an iframe, recomended to isolate Branch banner CSS
-					disableHide: false,                     // Should the user have the ability to hide the banner? (show's X on left side)
-					forgetHide: (form.phone.value === 'forgetHide'),                      // Should we show the banner after the user closes it? Can be set to true, or an integer to show again after X days
-					position: 'top',                        // Sets the position of the banner, options are: 'top' or 'bottom', and the default is 'top'
-					mobileSticky: false,                    // Determines whether the mobile banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to false *this property only applies when the banner position is 'top'
-					desktopSticky: true,                    // Determines whether the desktop banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to true *this property only applies when the banner position is 'top'
-					customCSS: '.title { color: #F00; }',   // Add your own custom styles to the banner that load last, and are gauranteed to take precedence, even if you leave the banner in an iframe
-					make_new_link: true,                    // Should the banner create a new link, even if a link already exists?
-					open_app: true
-				};
-				branch.banner(options, data);
-                form.phone.value = "";
-            }
-        </script>
-    </head>
-    <body>
-    	forgetHide or noForgetHide?
-        <form onsubmit="sendSMS(this); return false;">
-        	<input id="phone" name="phone" type="tel" placeholder="forgetHide/noForgetHide" />
-        	<br/>
-        	<input type="submit"/>
-        </form>
-    </body>
+<head>
+<meta charset="UTF-8">
+	<script src="../predefs.js"></script>
+	<script>
+		bannerforgethide();
+	</script>
+</head>
+<body>
+	forgetHide or noForgetHide?
+	<form onsubmit="bannerforgethideaction(this.phone); return false;">
+		<input id="phone" name="phone" type="tel" placeholder="forgetHide/noForgetHide" />
+		<br/>
+		<input type="submit"/>
+	</form>
+</body>
 </html>

@@ -53,3 +53,47 @@ var localinit = function() {
 var emptyplayground = function() {
 	mininclude();
 }
+
+var bannerforgethide = function() {
+	mininclude();
+	init();
+}
+var bannerforgethideaction = function(phone) {
+	var data = {
+		data : {
+			mydata: 'something',
+			foo: 'bar',
+			'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$android_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$og_app_id': '12345',
+			'$og_title': 'My App',
+			'$og_description': 'My app\'s description.'
+		},
+		tags: ['foo1', 'foo2']
+	};
+	var options = {
+		icon: 'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png',
+		title: 'Branch Demo App',
+		description: 'The Branch demo app!',
+		openAppButtonText: 'Open',
+		downloadAppButtonText: 'Download',
+		sendLinkText: 'Send Link',
+		phonePreviewText: '+44 9999-9999',
+		showiOS: true,
+		showiPad: true,
+		showAndroid: true,
+		showDesktop: true,
+		iframe: true,
+		disableHide: false,
+		forgetHide: (phone.value === 'forgetHide'),
+		position: 'top',
+		mobileSticky: false,
+		desktopSticky: true,
+		customCSS: '.title { color: #F00; }',
+		make_new_link: true,
+		open_app: true
+	};
+	branch.banner(options, data);
+}

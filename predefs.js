@@ -49,3 +49,7 @@ var localinit = function() {
 	branch.init(localkey, options, function(err, data) {console.log("callback after init:", err, data);});
 };
 
+// individual pages {{{1
+var emptyplayground = function() {
+	mininclude();
+}

@@ -45,11 +45,23 @@ var cdninclude = function() {
 
 // init {{{1
 var init = function() {
-	branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', {}, function(err, data) {console.log("callback after init:", err, data);});
+	branch.init(
+		'key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa',
+		{},
+		function(err, data) {
+			console.log("callback after init (err, data):", err, data);
+		}
+	);
 };
 
 var localinit = function() {
-	branch.init(localkey, {}, function(err, data) {console.log("callback after init:", err, data);});
+	branch.init(
+		localkey,
+		{},
+		function(err, data) {
+			console.log("callback after init (err, data):", err, data);
+		}
+	);
 };
 
 // individual pages {{{1
@@ -130,7 +142,7 @@ var deepview = function() {
 		open_app: true
 	};
 	var callback = function(err) {
-		console.log('kirk deepview callback:', err);
+		console.log('callback after deepview (err):', err);
 	};
 
 	branch.deepview(data, options, callback);
@@ -182,9 +194,42 @@ var linkbarebone = function() {
 	mininclude();
 	init();
 
-	branch.link({}, function(err, link) {
-		console.log(link);
-	});
+	branch.link(
+		{},
+		function(err, link) {
+			console.log('callback after branch.link (err, link):', err, link);
+		}
+	);
+};
+
+// link full {{{2
+var linkfull = function() {
+	mininclude();
+	init();
+
+	branch.link(
+		{
+			tags: [ 'tag1', 'tag2' ],
+			channel: 'facebook',
+			feature: 'dashboard',
+			stage: 'new user',
+			data: {
+				mydata: 'something',
+				foo: 'bar',
+				'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
+				'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
+				'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
+				'$android_url': 'https://en.wikipedia.org/wiki/Internet',
+				'$og_app_id': '12345',
+				'$og_title': 'My App',
+				'$og_description': 'My app\'s description.',
+				'$og_image_url': 'http://myappwebsite.com/image.png'
+			}
+		},
+		function(err, link) {
+			console.log('callback after branch.link (err, link):', err, link);
+		}
+	);
 };
 
 // link after set identity {{{2
@@ -196,12 +241,26 @@ var linkaftersetidentity = function() {
 		cbed();
 	});
 
-	var linkData = {
-		data: {
-			'$desktop_url': 'http://stg-api.tryoba.com',
+	branch.link(
+		{
+			data: {
+				'$desktop_url': 'http://stg-api.tryoba.com'
+			}
+		},
+		function(err, link) {
+			console.log('callback after branch.link (err, link):', err, link);
 		}
-	};
-	branch.link(linkData, function(err, link) {
-		console.log(link);
+	);
+};
+
+var logoutaftersetidentity = function() {
+	branch.setIdentity(
+		"rubin",
+		function(err, data){
+			console.log('callback after branch.setIdentity (err, data):', err, data);
+		}
+	):
+	branch.logout(function(err){
+		console.log('callback after logout (err):', err);
 	});
 };

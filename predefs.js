@@ -177,6 +177,16 @@ var getembeddedjsaction  = function() {
 	}
 };
 
+// link barebone {{{2
+var linkbarebone = function() {
+	mininclude();
+	init();
+
+	branch.link({}, function(err, link) {
+		console.log(link);
+	});
+};
+
 // link after set identity {{{2
 var linkaftersetidentity = function() {
 	mininclude();

@@ -238,7 +238,7 @@ var linkaftersetidentity = function() {
 	init();
 
 	branch.setIdentity("test@tryoba.com", function(err, data) {
-		cbed();
+		console.log('callback after branch.setIdentity (err, data):', err, data);
 	});
 
 	branch.link(
@@ -254,13 +254,22 @@ var linkaftersetidentity = function() {
 };
 
 var logoutaftersetidentity = function() {
+	mininclude();
+	init();
+
 	branch.setIdentity(
 		"rubin",
 		function(err, data){
 			console.log('callback after branch.setIdentity (err, data):', err, data);
 		}
-	):
+	);
 	branch.logout(function(err){
 		console.log('callback after logout (err):', err);
 	});
+	branch.setIdentity(
+		"rubin2",
+		function(err, data){
+			console.log('callback after second branch.setIdentity (err, data):', err, data);
+		}
+	);
 };

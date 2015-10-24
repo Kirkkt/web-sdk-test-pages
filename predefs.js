@@ -65,16 +65,18 @@ var localinit = function() {
 };
 
 // individual pages {{{1
+// common init {{{1
+var commoninit = function() {
+	mininclude();
+	init();
+}
+
 // empty playground {{{2
 var emptyplayground = function() {
 	mininclude();
 }
 
 // banner forgetHide {{{2
-var bannerforgethide = function() {
-	mininclude();
-	init();
-}
 var bannerforgethideaction = function(phone) {
 	var data = {
 		data : {
@@ -274,12 +276,7 @@ var logoutaftersetidentity = function() {
 	);
 };
 
-// sendsms {{{2
-var sendsms = function() {
-	mininclude();
-	init();
-};
-
+// sendsms barebone {{{2
 var sendsmsbareboneaction = function(phone) {
 	branch.sendSMS(
 		phone,
@@ -292,6 +289,7 @@ var sendsmsbareboneaction = function(phone) {
 	form.phone.value = "";
 }
 
+// sendsms make new link {{{2
 var sendsmsmakenewlinkaction = function(phone) {
 	branch.sendSMS(
 		phone,
@@ -312,3 +310,5 @@ var sendsmsmakenewlinkaction = function(phone) {
 	);
 	form.phone.value = "";
 }
+
+

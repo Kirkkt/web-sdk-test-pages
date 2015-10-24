@@ -273,3 +273,48 @@ var logoutaftersetidentity = function() {
 		}
 	);
 };
+
+// sendsms {{{2
+var sendsmsbarebone = function() {
+	mininclude();
+	init();
+};
+
+var sendsmsbareboneaction = function(phone) {
+	branch.sendSMS(
+		phone,
+		{ },
+		{ },
+		function(err, data) {
+			console.log('callback after sendSms (err, data):', err, data);
+		}
+	);
+	form.phone.value = "";
+}
+
+// sendsms make new link {{{2
+var sendsmsmakenewlink = function() {
+	mininclude();
+	init();
+};
+
+var sendsmsmakenewlinkaction = function(phone) {
+	branch.sendSMS(
+		phone,
+		{
+			tags: [],
+			channel: 'Website',
+			feature: 'TextMeTheApp',
+			data: {
+				"foo": "bar"
+			}
+		},
+		{
+			"make_new_link": true
+		},
+		function(err, data) {
+			console.log('callback after sendSms (err, data):', err, data);
+		}
+	);
+	form.phone.value = "";
+}

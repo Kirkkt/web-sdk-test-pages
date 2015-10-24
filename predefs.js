@@ -311,4 +311,15 @@ var sendsmsmakenewlinkaction = function(phone) {
 	form.phone.value = "";
 }
 
-
+// track {{{2
+var trackaction = function() {
+	branch.track(
+		"custom_event",
+		{
+			'foo': 'bar'
+		},
+		function(err){
+			console.log("callback after track (err):", err);
+		}
+	);
+};

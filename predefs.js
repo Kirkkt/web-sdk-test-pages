@@ -275,7 +275,7 @@ var logoutaftersetidentity = function() {
 };
 
 // sendsms {{{2
-var sendsmsbarebone = function() {
+var sendsms = function() {
 	mininclude();
 	init();
 };
@@ -291,12 +291,6 @@ var sendsmsbareboneaction = function(phone) {
 	);
 	form.phone.value = "";
 }
-
-// sendsms make new link {{{2
-var sendsmsmakenewlink = function() {
-	mininclude();
-	init();
-};
 
 var sendsmsmakenewlinkaction = function(phone) {
 	branch.sendSMS(

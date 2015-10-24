@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 	<script src="../predefs.js"></script>
-	<script>sendsmsbarebone();</script>
+	<script>sendsms();</script>
 </head>
 </html>
 	</script>
 </head>
 <body>
 	Send SMS
-	<form onsubmit="sendsmsbareboneaction(this.phone.value); this.phone.value = ""; return false;">
+	<form onsubmit="sendsmsmakenewlinkaction(this.phone.value); this.phone.value = ""; return false;">
 		<input id="phone" name="phone" type="tel" placeholder="(650) 123-4567" />
 		<br/>
 		<input type="submit"/>

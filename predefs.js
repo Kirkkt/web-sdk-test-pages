@@ -22,7 +22,7 @@ var callbackerrdata=function(err, data) {
 var cbed = callbackerrdata;
 
 // include {{{1
-var cdnversion = "v1.7.0";
+var cdnversion = "v1.7.1";
 
 var include = function(source, functionlist) {
 	if (!source) {
@@ -142,4 +142,40 @@ var deepview = function() {
 
 var deepviewaction = function() {
 	window.__branchRedirectToStore();
+};
+
+var getembeddedjs = function() {
+	var url = 'https://bnc.lt/a/key_live_eifqPbvhIRnKEb1T0MSFpipgsCenSDRu' + '?';
+	var params = {
+		"$deeplink_path": "explore/travel",
+		"my params": "1234"
+	};
+	if (params) {
+		for (var key in params) {
+			if (params.hasOwnProperty(key)) {
+				url += "&" + encodeURIComponent(key) + "=" + encodeURIComponent(params[key]);
+			}
+		}
+	}
+	window._base_url = url;
+	url = url + '&js_embed=true';
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.async = true;
+	script.src = url;
+	console.log('get embedded js url', url);
+	console.log('get embedded js script', script);
+	document.getElementsByTagName('head')[0].appendChild(script);
+};
+
+var getembeddedjsaction  = function() {
+	if (typeof window.__branchRedirectToStore == 'function') {
+		window.__branchRedirectToStore();
+	}
+	else if (window._base_url) {
+		window.location = window._base_url;
+	}
+	else {
+		console.log('get embedded js action failed');
+	}
 };

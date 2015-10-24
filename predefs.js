@@ -1,10 +1,6 @@
 // {{{ constants {{{1
 var localkey = 'key_live_amjUVsEyFPbXiDNlbyqNHmepafpADskB';
 
-var options = {};
-var data = {};
-var linkData = {};
-
 // callbacks {{{1
 var callbackdata=function(data) {
 	console.log('callback data', data);
@@ -49,11 +45,11 @@ var cdninclude = function() {
 
 // init {{{1
 var init = function() {
-	branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', options, function(err, data) {console.log("callback after init:", err, data);});
+	branch.init('key_live_gnbMtci1g3qBX2jRNsF1RhjpswaZkiaa', {}, function(err, data) {console.log("callback after init:", err, data);});
 };
 
 var localinit = function() {
-	branch.init(localkey, options, function(err, data) {console.log("callback after init:", err, data);});
+	branch.init(localkey, {}, function(err, data) {console.log("callback after init:", err, data);});
 };
 
 // individual pages {{{1
@@ -144,6 +140,7 @@ var deepviewaction = function() {
 	window.__branchRedirectToStore();
 };
 
+// get embedded js {{{2
 var getembeddedjs = function() {
 	var url = 'https://bnc.lt/a/key_live_eifqPbvhIRnKEb1T0MSFpipgsCenSDRu' + '?';
 	var params = {
@@ -178,4 +175,23 @@ var getembeddedjsaction  = function() {
 	else {
 		console.log('get embedded js action failed');
 	}
+};
+
+// link after set identity {{{2
+var linkaftersetidentity = function() {
+	mininclude();
+	init();
+
+	branch.setIdentity("test@tryoba.com", function(err, data) {
+		cbed();
+	});
+
+	var linkData = {
+		data: {
+			'$desktop_url': 'http://stg-api.tryoba.com',
+		}
+	};
+	branch.link(linkData, function(err, link) {
+		console.log(link);
+	});
 };

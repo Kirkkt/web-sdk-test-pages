@@ -22,7 +22,7 @@ var cdnversion = "v1.7.1";
 
 var include = function(source, functionlist) {
 	if (!source) {
-		source = "http://localhost:8000/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";
+		source = "http://localhost:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";
 	}
 
 	if (!functionlist) {
@@ -34,10 +34,10 @@ var include = function(source, functionlist) {
 	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src=source;k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},functionlist.split(" "), 0);
 };
 var mininclude = function() {
-	include("http://localhost:8000/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js");
+	include("http://localhost:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js");
 };
 var debuginclude = function() {
-	include("http://localhost:8000/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.js");
+	include("http://localhost:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.js");
 };
 var cdninclude = function() {
 	include("https://cdn.branch.io/branch-"+cdnversion+".min.js");

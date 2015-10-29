@@ -151,7 +151,7 @@ var deepview = function() {
 };
 
 var deepviewaction = function() {
-	window.__branchRedirectToStore();
+	branch.deepviewCta();
 };
 
 // get embedded js {{{2

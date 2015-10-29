@@ -65,9 +65,15 @@ var localinit = function() {
 };
 
 // individual pages {{{1
-// common init {{{1
+// common init {{{2
 var commoninit = function() {
 	mininclude();
+	init();
+}
+
+// debug init {{{2
+var debuginit = function() {
+	debuginclude();
 	init();
 }
 

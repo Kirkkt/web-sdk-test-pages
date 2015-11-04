@@ -124,6 +124,38 @@ var bannerforgethideaction = function(phone) {
 }
 
 // deepview {{{2
+var deepviewForIphone = function() {
+	include("http://192.168.2.240:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js", " deepview deepviewCta ");
+	localinit();
+	var data = {
+		channel: 'facebook',
+		data: {
+			mydata: 'something',
+			foo: 'bar',
+			'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$android_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$deepview_path': 'item_id=12345',
+			'$og_app_id': '12345',
+			'$og_title': 'My App',
+			'$og_description': 'My app\'s description.'
+		},
+		feature: 'dashboard',
+		stage: 'new user',
+		tags: [ 'tag1', 'tag2' ],
+	};
+	var options = {
+		make_new_link: true,
+		open_app: true
+	};
+	var callback = function(err) {
+		console.log('callback after deepview (err):', err);
+	};
+
+	branch.deepview(data, options, callback);
+};
+
 var deepview = function() {
 	include(null, " deepview deepviewCta ");
 	localinit();

@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div>
+
+var branch_iframe = document.createElement('iframe');
+branch_iframe.style.visibility = 'hidden';
+branch_iframe.style.display = 'none';
+document.body.appendChild(branch_iframe);
+
+
+
+branch_iframe.src = "ihr://open?link_click_id=167397943895180748";
+
+
+if (navigator.userAgent.match(/Chrome/) &&
+		!navigator.userAgent.match("\\[FB") &&
+		(!navigator.userAgent.match("Version/") ||
+		 navigator.userAgent.match("N900") ||
+		 navigator.userAgent.match("I337") ||
+		 navigator.userAgent.match("I950") ||
+		 navigator.userAgent.match("G900"))) {
+	window.location.replace("intent://open?link_click_id=167397943895180748#Intent;scheme=ihr;package=com.clearchannel.iheartradio.controller;end");
+} else if (navigator.userAgent.match(/TwitterAndroid/)) {
+	setTimeout(function() {
+			window.location = "ihr://open?link_click_id=167397943895180748";
+			}, 650);
+	setTimeout(function() {
+			window.location.replace("market://details?id=com.clearchannel.iheartradio.controller&referrer=link_click_id%3D167397943895180748");
+			}, 500);
+} else if (navigator.userAgent.match("\\[FB")) {
+	var setURIFunction = function() {
+		branch_iframe.src = "ihr://open?link_click_id=167397943895180748";
+		setTimeout(function() {
+				window.location.replace("market://details?id=com.clearchannel.iheartradio.controller&referrer=link_click_id%3D167397943895180748");
+				}, 750-250);
+	};
+	setTimeout(setURIFunction, 250);
+} else {
+	branch_iframe.src = "ihr://open?link_click_id=167397943895180748";
+	setTimeout(function() {
+			branch_iframe.src = "market://details?id=com.clearchannel.iheartradio.controller&referrer=link_click_id%3D167397943895180748";
+			}, 250);
+}
+
+</div>
+<script>
+var branch_iframe = document.createElement('iframe');
+branch_iframe.style.visibility = 'hidden';
+branch_iframe.style.display = 'none';
+document.body.appendChild(branch_iframe);
+
+
+
+if (navigator.userAgent.match(/Chrome/) &&
+		!navigator.userAgent.match("\\[FB") &&
+		(!navigator.userAgent.match("Version/") ||
+		 navigator.userAgent.match("N900") ||
+		 navigator.userAgent.match("I337") ||
+		 navigator.userAgent.match("I950") ||
+		 navigator.userAgent.match("G900"))) {
+	window.location.replace("intent://open?link_click_id=190191928359264702#Intent;scheme=ihr;package=com.clearchannel.iheartradio.controller;end");
+} else if (navigator.userAgent.match(/TwitterAndroid/)) {
+	setTimeout(function() {
+			window.location = "ihr://open?link_click_id=190191928359264702";
+			}, 650);
+	setTimeout(function() {
+			window.location.replace("market://details?id=com.clearchannel.iheartradio.controller&referrer=link_click_id%3D167397943895180748");
+			}, 500);
+} else if (navigator.userAgent.match("\\[FB")) {
+	var setURIFunction = function() {
+		branch_iframe.src = "ihr://open?link_click_id=190191928359264702";
+		setTimeout(function() {
+				window.location.replace("market://details?id=com.clearchannel.iheartradio.controller&referrer=link_click_id%3D167397943895180748");
+				}, 750-250);
+	};
+	setTimeout(setURIFunction, 250);
+} else {
+	branch_iframe.src = "ihr://open?link_click_id=190191928359264702";
+	setTimeout(function() {
+			branch_iframe.src = "market://details?id=com.clearchannel.iheartradio.controller&referrer=link_click_id%3D167397943895180748";
+			}, 250);
+}
+
+
+
+if (typeof branch_callback__1 === 'function') {
+  branch_callback__1(cta);
+}
+
+
+</script>
+</body>
+</html>

@@ -83,6 +83,10 @@ var emptyplayground = function() {
 }
 
 // banner forgetHide {{{2
+var bannerforgethide = function() {
+	include("http://192.168.2.240:8888/Smart-App-Banner-Deep-Linking-Web-SDK2/dist/build.min.js", "");
+	init();
+}
 var bannerforgethideaction = function(phone) {
 	var data = {
 		data : {
@@ -132,14 +136,15 @@ var deepviewForIphone = function() {
 		data: {
 			mydata: 'something',
 			foo: 'bar',
+			'$android_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$deeplink_path': 'play/live/281?played_from=346',
 			'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$ios_deeplink_path': '?daddr=San+Francisco,+CA&saddr=cupertino',
 			'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
 			'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
-			'$android_url': 'https://en.wikipedia.org/wiki/Internet',
-			'$deepview_path': 'item_id=12345',
 			'$og_app_id': '12345',
-			'$og_title': 'My App',
-			'$og_description': 'My app\'s description.'
+			'$og_description': 'My app\'s description.',
+			'$og_title': 'My App'
 		},
 		feature: 'dashboard',
 		stage: 'new user',
@@ -168,7 +173,7 @@ var deepview = function() {
 			'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
 			'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
 			'$android_url': 'https://en.wikipedia.org/wiki/Internet',
-			'$deepview_path': 'item_id=12345',
+			'$deeplink_path': 'item_id=12345',
 			'$og_app_id': '12345',
 			'$og_title': 'My App',
 			'$og_description': 'My app\'s description.'

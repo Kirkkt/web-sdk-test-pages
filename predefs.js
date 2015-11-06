@@ -22,7 +22,7 @@ var cdnversion = "v1.7.1";
 
 var include = function(source, functionlist) {
 	if (!source) {
-		source = "http://localhost:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";
+		source = "http://192.168.2.240:8888/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js";
 	}
 
 	if (!functionlist) {
@@ -34,10 +34,10 @@ var include = function(source, functionlist) {
 	(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src=source;k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},functionlist.split(" "), 0);
 };
 var mininclude = function() {
-	include("http://localhost:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js");
+	include("http://192.168.2.240:8888/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js");
 };
 var debuginclude = function() {
-	include("http://localhost:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.js");
+	include("http://192.168.2.240:8888/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.js");
 };
 var cdninclude = function() {
 	include("https://cdn.branch.io/branch-"+cdnversion+".min.js");
@@ -129,19 +129,20 @@ var bannerforgethideaction = function(phone) {
 
 // deepview {{{2
 var deepviewForIphone = function() {
-	include("http://192.168.2.240:2534/github/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js", " deepview deepviewCta ");
+	include("http://192.168.2.240:8888/Smart-App-Banner-Deep-Linking-Web-SDK/dist/build.min.js", " deepview deepviewCta ");
 	localinit();
 	var data = {
 		channel: 'facebook',
 		data: {
 			mydata: 'something',
 			foo: 'bar',
-			'$android_url': 'https://en.wikipedia.org/wiki/Internet',
+			// '$ios_url': 'https://en.wikipedia.org/wiki/Internet',
+			// '$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
+			// '$android_url': 'https://en.wikipedia.org/wiki/Internet',
+			'$android_deepview_path': 'radio/station/456',
 			'$deeplink_path': 'play/live/281?played_from=346',
 			'$desktop_url': 'https://en.wikipedia.org/wiki/Internet',
 			'$ios_deeplink_path': '?daddr=San+Francisco,+CA&saddr=cupertino',
-			'$ios_url': 'https://en.wikipedia.org/wiki/Internet',
-			'$ipad_url': 'https://en.wikipedia.org/wiki/Internet',
 			'$og_app_id': '12345',
 			'$og_description': 'My app\'s description.',
 			'$og_title': 'My App'
